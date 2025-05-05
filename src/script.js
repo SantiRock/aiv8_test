@@ -155,7 +155,7 @@ const weightDiv = document.getElementById("dbWeight")
 const weightBtn = document.getElementById("bWeight")
 const weightList = document.getElementById("listWeight")
 
-if (isMobile && getOrientation() === "landscape") {
+if (isMobile() && getOrientation() === "landscape") {
 
     slidersList.classList.remove("see")
     slidersBtn.classList.add('rotation')
@@ -221,7 +221,15 @@ function ocultar_textes() {
     weightList.style.opacity = "0"
 }
 
-function reiniciarInactividad() {
+function reiniciarInactividad(e) {
+
+    if (e && slidersList.contains(e.target)) {
+        slidersList.style.opacity = "1"
+        dataList.style.opacity = "1"
+        weightList.style.opacity = "1"
+        return 
+    }
+    
     slidersDiv.style.opacity = "1"
     dataDiv.style.opacity = "1"
     weightDiv.style.opacity = "1"

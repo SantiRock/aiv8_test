@@ -178,6 +178,7 @@ ul {
 .inputs {
     width: 230px;
     display: block;
+    pointer-events: auto;
 }
 
 input {
@@ -283,30 +284,33 @@ a:hover {
 }
 
 .modal_text {
-    margin-bottom: 17px;
     text-align: justify;
     line-height: 1.7;
+    margin-bottom: 17px;
 }
 
 .modal_links {
-    margin-bottom: 13px;
+    display: inline;
+    font-size: 14px;
 }
 
 .modal_ul {
+    margin-top: 13px;
     max-height: fit-content;
     overflow: visible;
     opacity: 1;
 }
 
 .tip_links_modal {
-    margin-bottom: 7px;
-    font-size: 12px;
+    display: inline;
+    font-size: 11px;
 }
 
 .insta {
     width: 23px;
     height: 23px;
     fill: white;
+    margin-bottom: 0;
 }
 
 .insta:hover {
@@ -324,6 +328,10 @@ a:hover {
 
 .link {
     transition: opacity 1.0s ease;
+}
+
+.ff {
+    margin-bottom: 0;
 }
 
 /* Hide */
