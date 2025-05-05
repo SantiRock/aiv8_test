@@ -27,6 +27,11 @@ const a_link = document.getElementById("link")
 const modalClose = document.getElementById("modal_close")
 const container = document.getElementById("container")
 
+window.addEventListener("orientationchange", () => {
+    location.reload()
+})
+
+
 // Tooltip
 
 zhizwhaH.addEventListener("mouseenter", () => {

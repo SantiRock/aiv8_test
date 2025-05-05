@@ -53,6 +53,10 @@ h3 {
     width: fit-content;
 }
 
+.zhizwa {
+    display: block;
+}
+
 .tooltip {
     position: absolute;
     z-index: 5;
@@ -122,6 +126,7 @@ h3:hover {
 /* Btn and Lists */
 
 .button {
+    display: block;
     margin: 13px 0;
     width: fit-content;
     opacity: 1;
@@ -172,6 +177,7 @@ ul {
 
 .inputs {
     width: 230px;
+    display: block;
 }
 
 input {
@@ -182,6 +188,10 @@ li{
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
+}
+
+.data_info {
+    display: block;
 }
 
 .data_info p {
@@ -320,4 +330,8 @@ a:hover {
 
 .hide {
     display: none;
+}
+
+.show {
+    display: auto;
 }
