@@ -2,7 +2,6 @@ import * as THREE from 'three'
 import { TrackballControls } from 'three/examples/jsm/Addons.js'
 import testVertexShader from '../static/shaders/test/vertex.glsl'
 import testFragmentShader from '../static/shaders/test/fragment.glsl'
-import { zip } from 'three/examples/jsm/libs/fflate.module.js'
 
 /**
  * SETUP
@@ -11,6 +10,10 @@ import { zip } from 'three/examples/jsm/libs/fflate.module.js'
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
 
+
+/**
+ * INTERFACE
+ */
 
 // HTML tags
 const body = document.getElementById('body')
@@ -22,6 +25,7 @@ const tooltip = document.getElementById("tooltip")
 const modal = document.getElementById("modal")
 const a_link = document.getElementById("link")
 const modalClose = document.getElementById("modal_close")
+const container = document.getElementById("container")
 
 // Tooltip
 
@@ -44,7 +48,6 @@ modalClose.addEventListener("click", () => {
 })
 
 // WakeLock
-
 let wakeLock = null;
 
 async function requestWakeLock() {
@@ -65,9 +68,7 @@ function desactivarWakeLock() {
 }
 
 
-
 // FullScreen
-
 exitFullscreen.addEventListener("click", () => {
     if(!document.fullscreenElement) {
 
@@ -118,6 +119,138 @@ function handler() {
 }
 
 
+// Buttons
+
+function isMobile() {
+    return /Mobi|Android|iPhone/.test(navigator.userAgent)
+}
+
+function getOrientation() {
+    if (window.matchMedia("(orientation: portrait)").matches) {
+        return 'portrait'
+    } else if (window.matchMedia("(orientation: landscape").matches) {
+        return 'landscape'
+    }
+    return 'unkown'
+}
+
+console.log(getOrientation())
+
+if (isMobile()) {
+    container.style.justifyContent = "start"
+}
+
+
+const slidersDiv = document.getElementById("dbSliders")
+const slidersBtn = document.getElementById("bSliders")
+const slidersList = document.getElementById("listSliders")
+const dataDiv = document.getElementById("dbData")
+const dataBtn = document.getElementById("bData")
+const dataList = document.getElementById("listData")
+const weightDiv = document.getElementById("dbWeight")
+const weightBtn = document.getElementById("bWeight")
+const weightList = document.getElementById("listWeight")
+
+
+slidersDiv.addEventListener('click', () => {
+    slidersList.classList.toggle('see')
+    slidersBtn.classList.toggle('close')
+
+    if (isMobile() & getOrientation() === "landscape") {
+        if (slidersList.classList.contains('see')) {
+            dataDiv.style.opacity = "0"
+            weightDiv.style.opacity = "0"
+        } else {
+            dataDiv.style.opacity = "1"
+            weightDiv.style.opacity = "1"
+        }
+        }
+})
+
+dataDiv.addEventListener('click', () => {
+    dataList.classList.toggle('see')
+    dataBtn.classList.toggle('close')
+
+    if (isMobile() & getOrientation() === "landscape") {
+        if (dataList.classList.contains('see')) {
+            slidersDiv.style.opacity = "0"
+            weightDiv.style.opacity = "0"
+        } else {
+            slidersDiv.style.opacity = "1"
+            weightDiv.style.opacity = "1"
+        }
+        }
+})
+
+weightDiv.addEventListener('click', () => {
+    weightList.classList.toggle('see')
+    weightBtn.classList.toggle('close')
+
+    if (isMobile() & getOrientation() === "landscape") {
+        if (weightList.classList.contains('see')) {
+            dataDiv.style.opacity = "0"
+            slidersDiv.style.opacity = "0"
+        } else {
+            dataDiv.style.opacity = "1"
+            slidersDiv.style.opacity = "1"
+        }
+        }
+})
+
+
+
+
+// Temporizador ocultar
+
+let temporizador
+let temporizador_textes
+
+function ocultar() {
+    slidersDiv.style.opacity = "0"
+    dataDiv.style.opacity = "0"
+    weightDiv.style.opacity = "0"
+    exitFullscreen.style.opacity = "0"
+    a_link.style.opacity = "0"
+    zhizwhaH.style.opacity = "0"
+}
+
+function ocultar_textes() {
+    slidersList.style.opacity = "0"
+    dataList.style.opacity = "0"
+    weightList.style.opacity = "0"
+}
+
+function reiniciarInactividad() {
+    slidersDiv.style.opacity = "1"
+    dataDiv.style.opacity = "1"
+    weightDiv.style.opacity = "1"
+    exitFullscreen.style.opacity = "1"
+    a_link.style.opacity = "1"
+    slidersList.style.opacity = "1"
+    dataList.style.opacity = "1"
+    weightList.style.opacity = "1"
+    zhizwhaH.style.opacity = "1"
+
+    clearTimeout(temporizador)
+    temporizador = setTimeout(ocultar,3000)
+
+    clearTimeout(temporizador_textes)
+    temporizador_textes = setTimeout(ocultar_textes, 15000)
+}
+
+
+
+['mousemove', 'touchstart', 'keydown'].forEach(e => {
+    window.addEventListener(e, reiniciarInactividad);
+})
+
+reiniciarInactividad();
+
+
+/**
+* THREEJS
+*/
+
 // Scene
 const scene = new THREE.Scene()
 
@@ -141,79 +274,8 @@ const variables = {
     b: b1
 }
 
-// Buttons
-const slidersDiv = document.getElementById("dbSliders")
-const slidersBtn = document.getElementById("bSliders")
-const slidersList = document.getElementById("listSliders")
 
-slidersDiv.addEventListener('click', () => {
-    slidersList.classList.toggle('see')
-    slidersBtn.classList.toggle('close')
-})
-
-const dataDiv = document.getElementById("dbData")
-const dataBtn = document.getElementById("bData")
-const dataList = document.getElementById("listData")
-
-dataDiv.addEventListener('click', () => {
-    dataList.classList.toggle('see')
-    dataBtn.classList.toggle('close')
-})
-
-
-const weightDiv = document.getElementById("dbWeight")
-const weightBtn = document.getElementById("bWeight")
-const weightList = document.getElementById("listWeight")
-
-weightDiv.addEventListener('click', () => {
-    weightList.classList.toggle('see')
-    weightBtn.classList.toggle('close')
-})
-
-let temporizador
-let temporizador_textes
-
-function ocultar() {
-    slidersDiv.style.opacity = "0"
-    dataDiv.style.opacity = "0"
-    weightDiv.style.opacity = "0"
-    exitFullscreen.style.opacity = "0"
-    a_link.style.opacity = "0"
-    zhizwhaH.style.opacity = "0"
-}
-
-
-function ocultar_textes() {
-    slidersList.style.opacity = "0"
-    dataList.style.opacity = "0"
-    weightList.style.opacity = "0"
-}
-
-function reiniciarInactividad() {
-    slidersDiv.style.opacity = "1"
-    dataDiv.style.opacity = "1"
-    weightDiv.style.opacity = "1"
-    exitFullscreen.style.opacity = "1"
-    a_link.style.opacity = "1"
-    slidersList.style.opacity = "1"
-    dataList.style.opacity = "1"
-    weightList.style.opacity = "1"
-    zhizwhaH.style.opacity = "1"
-
-
-    clearTimeout(temporizador)
-    temporizador = setTimeout(ocultar,30000)
-
-    clearTimeout(temporizador_textes)
-    temporizador_textes = setTimeout(ocultar_textes, 150000)
-}
-
-['mousemove', 'touchstart', 'keydown'].forEach(e => {
-    window.addEventListener(e, reiniciarInactividad);
-})
-
-reiniciarInactividad();
-
+// Interface
 // Sliders
 
 const i_zoom = document.getElementById("i_zoom")
@@ -271,13 +333,11 @@ i_b.addEventListener('input', () => {
 })
 
 // Data Info
-
 const mesh_x = document.getElementById("mesh_x")
 const mesh_y = document.getElementById("mesh_y")
 const mesh_z = document.getElementById("mesh_z")
 const twril_tag = document.getElementById("twril")
 const elapsedTime_tag = document.getElementById("elapsedTime")
-
 
 /**
  * Test mesh

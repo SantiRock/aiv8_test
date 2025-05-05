@@ -1,5 +1,5 @@
 :root {
-    --color-hover: rgb(222, 255, 237);
+    --color-hover: rgb(175, 246, 255);
 }
 
 *
@@ -275,7 +275,7 @@ a:hover {
 .modal_text {
     margin-bottom: 17px;
     text-align: justify;
-    line-height: 1.5;
+    line-height: 1.7;
 }
 
 .modal_links {
