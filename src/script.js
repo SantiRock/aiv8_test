@@ -140,7 +140,6 @@ if (isMobile()) {
     container.style.justifyContent = "start"
 }
 
-
 const slidersDiv = document.getElementById("dbSliders")
 const slidersBtn = document.getElementById("bSliders")
 const slidersList = document.getElementById("listSliders")
@@ -151,54 +150,48 @@ const weightDiv = document.getElementById("dbWeight")
 const weightBtn = document.getElementById("bWeight")
 const weightList = document.getElementById("listWeight")
 
+if (isMobile & getOrientation() === "landscape") {
 
-slidersDiv.addEventListener('click', () => {
-    slidersList.classList.toggle('see')
-    slidersBtn.classList.toggle('close')
+    slidersDiv.addEventListener('click', () => {
+        zhizwhaH.classList.toggle('hide')
+        slidersList.classList.toogle('see')
+        slidersBtn.classList.toogle('rotation')
+        dataDiv.classList.toggle('hide')
+        weightDiv.classList.toggle('hide')
+    })
 
-    if (isMobile() & getOrientation() === "landscape") {
-        if (slidersList.classList.contains('see')) {
-            dataDiv.style.opacity = "0"
-            weightDiv.style.opacity = "0"
-        } else {
-            dataDiv.style.opacity = "1"
-            weightDiv.style.opacity = "1"
-        }
-        }
-})
+    dataDiv.addEventListener('click', () => {
+        zhizwhaH.classList.toggle('hide')
+        dataList.classList.toogle('see')
+        dataBtn.classList.toogle('rotation')
+        slidersDiv.classList.toggle('hide')
+        weightDiv.classList.toggle('hide')
+    })
 
-dataDiv.addEventListener('click', () => {
-    dataList.classList.toggle('see')
-    dataBtn.classList.toggle('close')
-
-    if (isMobile() & getOrientation() === "landscape") {
-        if (dataList.classList.contains('see')) {
-            slidersDiv.style.opacity = "0"
-            weightDiv.style.opacity = "0"
-        } else {
-            slidersDiv.style.opacity = "1"
-            weightDiv.style.opacity = "1"
-        }
-        }
-})
-
-weightDiv.addEventListener('click', () => {
-    weightList.classList.toggle('see')
-    weightBtn.classList.toggle('close')
-
-    if (isMobile() & getOrientation() === "landscape") {
-        if (weightList.classList.contains('see')) {
-            dataDiv.style.opacity = "0"
-            slidersDiv.style.opacity = "0"
-        } else {
-            dataDiv.style.opacity = "1"
-            slidersDiv.style.opacity = "1"
-        }
-        }
-})
-
-
-
+    weightDiv.addEventListener('click', () => {
+        zhizwhaH.classList.toggle('hide')
+        weightList.classList.toogle('see')
+        weightBtn.classList.toogle('rotation')
+        dataDiv.classList.toggle('hide')
+        slidersDiv.classList.toggle('hide')
+    })
+} else {
+    slidersDiv.addEventListener('click', () => {
+        slidersList.classList.toggle('see')
+        slidersBtn.classList.toggle('rotation')
+    
+    })
+    
+    dataDiv.addEventListener('click', () => {
+        dataList.classList.toggle('see')
+        dataBtn.classList.toggle('rotation')
+    })
+    
+    weightDiv.addEventListener('click', () => {
+        weightList.classList.toggle('see')
+        weightBtn.classList.toggle('rotation')
+    })
+}
 
 // Temporizador ocultar
 
