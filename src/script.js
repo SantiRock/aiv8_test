@@ -157,6 +157,9 @@ const weightList = document.getElementById("listWeight")
 
 if (isMobile && getOrientation() === "landscape") {
 
+    slidersList.classList.remove("see")
+    slidersBtn.classList.add('rotation')
+
     slidersDiv.addEventListener('click', () => {
         zhizwhaH.classList.toggle('hide')
         slidersList.classList.toggle('see')
