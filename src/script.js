@@ -150,28 +150,28 @@ const weightDiv = document.getElementById("dbWeight")
 const weightBtn = document.getElementById("bWeight")
 const weightList = document.getElementById("listWeight")
 
-if (isMobile & getOrientation() === "landscape") {
+if (isMobile && getOrientation() === "landscape") {
 
     slidersDiv.addEventListener('click', () => {
         zhizwhaH.classList.toggle('hide')
-        slidersList.classList.toogle('see')
-        slidersBtn.classList.toogle('rotation')
+        slidersList.classList.toggle('see')
+        slidersBtn.classList.toggle('rotation')
         dataDiv.classList.toggle('hide')
         weightDiv.classList.toggle('hide')
     })
 
     dataDiv.addEventListener('click', () => {
         zhizwhaH.classList.toggle('hide')
-        dataList.classList.toogle('see')
-        dataBtn.classList.toogle('rotation')
+        dataList.classList.toggle('see')
+        dataBtn.classList.toggle('rotation')
         slidersDiv.classList.toggle('hide')
         weightDiv.classList.toggle('hide')
     })
 
     weightDiv.addEventListener('click', () => {
         zhizwhaH.classList.toggle('hide')
-        weightList.classList.toogle('see')
-        weightBtn.classList.toogle('rotation')
+        weightList.classList.toggle('see')
+        weightBtn.classList.toggle('rotation')
         dataDiv.classList.toggle('hide')
         slidersDiv.classList.toggle('hide')
     })
