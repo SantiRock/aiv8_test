@@ -21,29 +21,60 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
     />
     <title>A1V8</title>
-    <script type="module" crossorigin src="/aiv8_test/assets/index-CMfDrdBM.js"></script>
-    <link rel="stylesheet" crossorigin href="/aiv8_test/assets/index-Cqg29St8.css">
+    <script type="module" crossorigin src="/aiv8_test/assets/index-CwR2XJVP.js"></script>
+    <link rel="stylesheet" crossorigin href="/aiv8_test/assets/index-JHJL8vqN.css">
   </head>
 
   <body id="body">
     <canvas class="webgl"></canvas>
 
+    <div id="modal1" class="modal is-hidden">
+      <div class="modal_container">
+        <p id="modal_close1" class="modal_closebtn"><b>X</b></p>
+        <p id="z_title" class="modal_text">Zhizhwa - De la lengua muisca: garabato</p>
+        <p id="z_text" class="modal_text">Inspirada en el universo VJ (mezcla de video en tiempo real), Zhizhwa es una interfaz web que permite al visitante modificar en tiempo real una animación generada por código, dando lugar a infinitas variaciones de una forma que se dibuja y desdibuja continuamente. Formas danzantes que acompañadas de música tienden a la sincronía, produciendo una experiencia sinestésica: fusión de percepciones sensoriales.</p>
+        <buttom id="modal_btn" class="modal_btn">Técnica</buttom>
+      </div>
+    </div>
+
     <div id="modal" class="modal is-hidden">
       <div class="modal_container">
         <p id="modal_close" class="modal_closebtn"><b>X</b></p>
-        <p class="modal_text"><b>A1V8</b> es un proyecto artístico que investiga la imagen interactiva en tiempo real mediante programación gráfica. Nos interesa crear experiencias estéticas desde el código, explorando el potencial expresivo de esta tecnología como lenguaje visual. Buscamos promover la producción de proyectos web y/o no-web que integren propuestas visuales interactivas.</p>
+        <p class="modal_text">
+          <b>A1V8</b> es un proyecto artístico que investiga la imagen
+          interactiva en tiempo real mediante programación gráfica. Nos interesa
+          crear experiencias estéticas desde el código, explorando el potencial
+          expresivo de esta tecnología como lenguaje visual. Buscamos promover
+          la producción de proyectos web y/o no-web que integren propuestas
+          visuales interactivas.
+        </p>
         <p class="modal_links"><b>Links</b></p>
-        <p class="tip_links_modal">- Si no carga bien intenten recargar</p>
+        <p class="tip_links_modal">(Si no carga bien intenta recargar)</p>
         <ul class="modal_ul">
-          <li><a href="https://santirock.github.io/test-skull/" target="_blank">- Skull_Test</a></li>
-          <li><a href="https://santirock.github.io/webgl_drawing_modes/" target="_blank">- WebGL Drawing Modes</a></li>
-          <li class="ff"><a href="https://www.instagram.com/_a1v8/" target="_blank"><svg class="insta">
-            <use class="insta_svg" href="/aiv8_test/images/symbol-defs.svg#instagram"></use>
-          </svg></a></li>
+          <li>
+            <a href="https://santirock.github.io/test-skull/" target="_blank"
+              >- Skull_Test</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://santirock.github.io/webgl_drawing_modes/"
+              target="_blank"
+              >- WebGL Drawing Modes</a
+            >
+          </li>
+          <li class="ff">
+            <a href="https://www.instagram.com/a1v8visu/" target="_blank"
+              ><svg class="insta">
+                <use
+                  class="insta_svg"
+                  href="/aiv8_test/images/symbol-defs.svg#instagram"
+                ></use></svg></a>
+          </li>
         </ul>
       </div>
     </div>
-    
+
     <div class="exit_fullscreen" id="exit_fullscreen">
       <p id="full_screen">Full Screen</p>
       <p class="fullscreen_btn" id="exit_fullscreen_btn"></p>
@@ -51,10 +82,7 @@
 
     <div class="container" id="container">
       <div>
-        <div class="tooltip_wrapper">
-          <h3 class="zhizhwa" id="zhizhwa">Zhizhwa</h3>
-          <p class="tooltip" id="tooltip">De la lengua muisca: garabato</p>
-        </div>
+        <h3 class="zhizhwa" id="zhizhwa">Zhizhwa</h3>
 
         <div class="button" id="dbSliders">
           <button class="" id="bSliders">V</button>
