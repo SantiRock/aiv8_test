@@ -42,35 +42,19 @@ body
 
 /* Tooltip */
 
-.tooltip_wrapper {
-    position: relative;
-    pointer-events: auto;
-}
 
 h3 {
     margin-bottom: 17px;
     transition: opacity 1.0s ease;
     width: fit-content;
+    pointer-events: auto;
 }
 
 .zhizwa {
     display: block;
+    pointer-events: auto;
 }
 
-.tooltip {
-    position: absolute;
-    z-index: 5;
-    top: 9px;
-    left: 40px;
-
-    font-size: 11px;
-    padding: 3px 4px;
-    border: 1px solid rgb(118, 118, 118);
-    border-radius: 7px;
-    background-color: black;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
 
 h3:hover {
     cursor: pointer;
@@ -250,6 +234,7 @@ a:hover {
     margin: auto;
     padding: 15px 20px;
     max-width: 600px;
+    min-width: 290px;
     background-color: rgba(13, 13, 13, 0.9);
     border-radius: 7px;
 }
@@ -332,6 +317,24 @@ a:hover {
 
 .ff {
     margin-bottom: 0;
+}
+
+.modal_btn {
+    display: block;
+    margin-bottom: 17px;
+    letter-spacing: 0.1em;
+    padding: 5px;
+    padding-left: 7px;
+    border-radius: 5px;
+    background-color: rgb(66, 66, 66);
+    pointer-events: auto;
+    transition: background-color 0.3s ease;
+}
+
+
+.modal_btn:hover {
+    cursor: pointer;
+    background-color: rgb(93, 157, 93);
 }
 
 /* Hide */

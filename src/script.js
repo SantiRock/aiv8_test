@@ -17,31 +17,51 @@ const canvas = document.querySelector('canvas.webgl')
 
 // HTML tags
 const body = document.getElementById('body')
+const container = document.getElementById("container")
+
 const exitFullscreen = document.getElementById('exit_fullscreen')
 const fullScreenText = document.getElementById('full_screen')
 const exitFullscreenBtn = document.getElementById('exit_fullscreen_btn')
+
 const zhizwhaH = document.getElementById('zhizhwa')
-const tooltip = document.getElementById("tooltip")
+const modal1 = document.getElementById("modal1")
+const modalClose1 = document.getElementById("modal_close1")
+const modalBtn1 = document.getElementById("modal_btn")
+const zText = document.getElementById("z_text")
+const zTitle = document.getElementById("z_title")
+let isTech = false;
+
 const modal = document.getElementById("modal")
 const a_link = document.getElementById("link")
 const modalClose = document.getElementById("modal_close")
-const container = document.getElementById("container")
 
+// Generals
 window.addEventListener("orientationchange", () => {
     location.reload()
 })
 
-
-// Tooltip
-
-zhizwhaH.addEventListener("mouseenter", () => {
-    tooltip.style.opacity = 1;
+// Modal Zhizhwa
+zhizwhaH.addEventListener("click", () => {
+    modal1.classList.toggle("is-hidden")
 })
 
-zhizwhaH.addEventListener("mouseout", () => {
-    tooltip.style.opacity = 0;
+modalClose1.addEventListener("click", () => {
+    modal1.classList.toggle("is-hidden")
 })
 
+modalBtn1.addEventListener("click", () => {
+    if (!isTech) {
+        zText.textContent = "Zhizhwa es una obra de arte digital creada mediante programación gráfica a través del lenguaje de shaders GLSL. La información visual se envía directamente a la tarjeta gráfica desde el código, frame a frame, sin depender de archivos de video, y permitiendo la interactividad. La animación se crea y desaparece a cada fotograma; no es posible avanzar ni retroceder, solo existe en el instante presente. Los controles deslizantes (sliders) están conectados directamente al fragment shader, lo que habilita al usuario modificar en tiempo real algunos de sus valores, influyendo así en la visualización de la animación."
+        zTitle.textContent = ""
+        modalBtn1.textContent = "Concepto"
+        isTech = true
+    } else if (isTech) {
+        zText.textContent = "Inspirada en el universo VJ (mezcla de video en tiempo real), Zhizhwa es una interfaz web que permite al visitante modificar en tiempo real una animación generada por código, dando lugar a infinitas variaciones de una forma que se dibuja y desdibuja continuamente. Formas danzantes que acompañadas de música tienden a la sincronía, produciendo una experiencia sinestésica: fusión de percepciones sensoriales."
+        zTitle.textContent = "Zhizhwa - De la lengua muisca: garabato"
+        modalBtn1.textContent = "Técnica"
+        isTech = false
+    }
+})
 
 // Modal
 a_link.addEventListener("click", () => {
