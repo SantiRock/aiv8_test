@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { TrackballControls } from 'three/examples/jsm/Addons.js'
-import testVertexShader from '../static/shaders/test/vertex.glsl'
-import testFragmentShader from '../static/shaders/test/fragment.glsl'
+import testVertexShader from '../static/shaders/vertex.glsl'
+import testFragmentShader from '../static/shaders/fragment.glsl'
 
 /**
  * SETUP
